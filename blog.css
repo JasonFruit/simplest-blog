@@ -1,0 +1,43 @@
+body {
+    background-color: #FFFFFF;
+    width: 80%;
+    padding-left: 10%;
+}
+
+#linkbar {
+    display: inline;
+    padding-left: 0%;
+}
+
+#linkbar li {
+    padding-right: 15px;
+    display: inline;
+}
+
+#linkbar.li {
+    display: inline;
+}
+
+#main-title {
+    font-size: 28pt;
+    inherit: false;
+}
+
+h1 {
+    font-size: 24pt;
+}
+
+p.tagline {
+    font-size: 12pt;
+    font-style: italic;
+}
+
+div.post-content {
+    margin-top: 10px;
+    margin-bottom: 18px;
+    padding-left: 3px;
+    background-color: #FFFFDD;
+    border: solid;
+    border-color: #CCFFBB;
+    border-weight: 0.1px;
+}
