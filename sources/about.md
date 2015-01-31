@@ -23,3 +23,7 @@ try anything once, as long as it's not too expensive, too dangerous,
 or outright immoral.
 
 Anything I do or am, I may write about.  You have been warned.
+
+If you want to write me — especially welcome if you can correct me on
+any errors I have made — you can do so at
+[JasonFruit@gmail.com](mailto:JasonFruit@gmail.com).
