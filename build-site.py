@@ -29,7 +29,15 @@ delim_line = u"<!-- Post Markdown begins here -->"
 
 posts = []
 
-for fn in glob("sources/*.md"):
+sources = glob("sources/*.md")
+
+sources = [source for source in sources
+           if source != "sources/draft.md"]
+
+if not os.path.exists("posts"):
+    os.mkdir("posts")
+    
+for fn in sources:
     
     lines = open(fn, "r", "utf-8").readlines()
 
