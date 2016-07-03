@@ -17,7 +17,7 @@ States, like all friends, now and then fail to see eye-to-eye, have
 their little disagreements; that's democracy for you, and democracy,
 like patriotism, is surely a Christian principle.
 
-It's a beautiful relationship, and it has been mutually beneficial —
+It's a beautiful relationship, and it has been mutually beneficial &mdash;
 the churches have become large and wealthy, and the American
 government has gained valuable support from a potentially troublesome
 constituency.  It's a pity that the closeness of the church to the
@@ -27,7 +27,7 @@ writes in Romans 13:
 
 >  <sup>1</sup>Let every soul be subject unto the higher powers.  For
 >  there is no power but of God: the powers that be are ordained of
->  God… <sup>3</sup>For rulers are not a terror to good works, but to
+>  God&hellip; <sup>3</sup>For rulers are not a terror to good works, but to
 >  the evil.
 
 We should not resist government authority (insofar as it is not a
@@ -38,13 +38,13 @@ ordained the Assyrians to a purpose, as is written in Isaiah 10:
 >  <sup>5</sup>O Assyrian, the rod of mine anger, and the staff in
 >  their hand is mine indignation.  <sup>6</sup>I will send him
 >  against an hypocritical nation, and against the people of my wrath
->  will I give him a charge… <sup>12</sup> … when the Lord hath
+>  will I give him a charge&hellip; <sup>12</sup> &hellip; when the Lord hath
 >  performed his whole work upon mount Zion and on Jerusalem, I will
 >  punish the fruit of the stout heart of the king of Assyria, and the
 >  glory of his high looks.
 
 Clearly God's intent to use government for a purpose does not make it
-a friend of His people.  As James 4:4 has it, "… know ye not that the
+a friend of His people.  As James 4:4 has it, "&hellip; know ye not that the
 friendship of the world is enmity with God?  Whosoever therefore will
 be a friend of the world is the enemy of God."  And on its part, the
 United States, like all worldly bodies, is no friend of God or of His
@@ -63,7 +63,7 @@ inimical to God.
 
 God's people, on the other hand, are called in Romans 12 to
 
->  <sup>2</sup> …be not conformed to this world: but be ye transformed
+>  <sup>2</sup> &hellip;be not conformed to this world: but be ye transformed
 >  by the renewing of your mind, that ye may prove what is that good,
 >  and acceptable, and perfect, will of God.
 
@@ -71,7 +71,7 @@ Further, Christians are admonished in 1 John 2 to
 
 >  <sup>15</sup>Love not the world, neither the things that are in the
 >  world.  If any man love the world, the love of the Father is not in
->  him.  <sup>16</sup>For all that is in the world… is not of the
+>  him.  <sup>16</sup>For all that is in the world&hellip; is not of the
 >  Father, but is of the world.
 
 Can Christians justify patriotism, in light of that?  Let alone
@@ -79,7 +79,7 @@ demanding it, does Christianity leave a place for any deep "love of
 country"?  Can we hold that a body that requires pledges of
 allegiance, oaths of office, asserts that it can compel not just our
 bodies but our consciences, forcing us to act against them, a power
-that in unnumbered ways usurps rights that are God's and God's alone —
+that in unnumbered ways usurps rights that are God's and God's alone &mdash;
 can we hold that such a body is in any sense a friend to Christianity?
 Can we hope to conform such a power to Christ, or will our
 entanglement with it necessarily impel _us_ to be conformed to _it_?
@@ -110,8 +110,8 @@ showed itself the enemy of God's people: the children of Israel were
 made slaves, and escaped Egyptian might in their departure into the
 wilderness only through the powerful intervention of God.  If an
 action or expectation of ours in relation to our country, then, would
-seem naïve if projected onto Biblical Israel in their dealings with
-the Egyptians and Pharaoh, we should suspect it of being naïve and
+seem na&iuml;ve if projected onto Biblical Israel in their dealings with
+the Egyptians and Pharaoh, we should suspect it of being na&iuml;ve and
 inappropriate.  For example, we should weigh our gratitude for how the
 churches have prospered in America on the same scale we weigh the
 Israelites' gratitude for their prosperity in Egypt.  Or, take a
