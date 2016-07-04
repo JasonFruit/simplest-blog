@@ -1,6 +1,6 @@
 title: A Christian Independence Day
 date: July 4, 2016
-publish: yes
+publish: no
 <!-- Post Markdown begins here -->
 
 A Christian Independence Day
