@@ -1,17 +1,23 @@
+from __future__ import unicode_literals, print_function
+
 import os
 from codecs import open
 from datetime import datetime
 
-from Cheetah.Template import Template
+from mako.template import Template
 from markdown import markdown
 from dateutil.parser import parse
 from glob import glob
+
+post_tmpl = Template(open("post.tmpl", "r", "utf-8").read())
+main_tmpl = Template(open("main.tmpl", "r", "utf-8").read())
+post_index_tmpl = Template(open("post_index.tmpl", "r", "utf-8").read())
 
 title = "On Taking an Interest"
 
 def title_to_filename(title):
     return "".join([c for c in title.lower().replace(" ", "_")
-                    if c in u"abcdefghijklmnopqrstuvwxyz_"])
+                    if c in "abcdefghijklmnopqrstuvwxyz_"])
 
 class Post(object):
     def __init__(self, title, content, attributes=list()):
@@ -25,7 +31,7 @@ class Post(object):
         else:
             return "Published post: %s" % self.title
 
-delim_line = u"<!-- Post Markdown begins here -->"
+delim_line = "<!-- Post Markdown begins here -->"
 
 posts = []
 
@@ -48,7 +54,7 @@ for fn in sources:
 
     for i in range(len(lines)):
 
-        line = unicode(lines[i])
+        line = str(lines[i])
 
         if line.startswith(delim_line):
             in_content = True
@@ -59,7 +65,7 @@ for fn in sources:
                 elements = line.split(":")
                 attributes[elements[0]] = ":".join(elements[1:]).strip()
 
-    content = u"".join(content)
+    content = "".join(content)
 
     post = Post(attributes["title"],
                 markdown(content, output_format="xhtml"),
@@ -82,38 +88,37 @@ def titlecmp(a, b):
 
 os.system("rm posts/*")
 
-posts.sort(datecmp)
+def post_ordering(p):
+    d = parse(p.attributes["date"]).toordinal()
+    return 0 - d
+
+posts.sort(key=post_ordering)
 
 for post in posts:
-    if attributes["publish"] != "no":
-        post_html = unicode(
-            Template(open("post.tmpl", "r", "utf-8").read(),
-                     searchList = [{"title": title,
-                                    "post": post,
-                                    "date": post.attributes["date"]}]))
-
+    if post.attributes["publish"] != "no":
+        post_html = post_tmpl.render(title=title,
+                                     post=post,
+                                     date=post.attributes["date"])
         open("posts/%s" % post.url,
              "w",
              "utf-8").write(post_html)
 
-index_html = unicode(
-    Template(open("main.tmpl", "r", "utf-8").read(),
-             searchList = [{"title": title,
-                            "posts": [post for post in posts
-                                      if post.title.lower() not in ["about", "links"]
-                                      and post.attributes["publish"] != "no"][:3],
-                            "date": "2015-present"}]))
+index_html = main_tmpl.render(title=title,
+                              posts=[
+                                  post for post in posts
+                                  if post.title.lower() not in ["about", "links"]
+                                  and post.attributes["publish"] != "no"][:3],
+                              date="2015-present")
 
 open("posts/index.html", "w", "utf-8").write(index_html)
 
-posts.sort(titlecmp)
+posts.sort(key=lambda p: p.title)
 
-post_index_html = unicode(
-    Template(open("post_index.tmpl", "r", "utf-8").read(),
-             searchList = [{"title": title,
-                            "posts": [post for post in posts
-                                      if post.attributes["publish"] != "no"],
-                            "date": datetime.now().strftime("%B %d, %Y")}]))
+post_index_html = post_index_tmpl.render(
+    title=title,
+    posts=[post for post in posts
+           if post.attributes["publish"] != "no"],
+    date=datetime.now().strftime("%B %d, %Y"))
 open("posts/post_index.html", "w", "utf-8").write(post_index_html)
 
 os.system("cp *.css posts/")

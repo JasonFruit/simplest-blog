@@ -8,12 +8,12 @@
                           http://www.w3.org/MarkUp/SCHEMA/xhtml11.xsd"
       >
   <head>
-    <title>$title: $post.title</title>
+    <title>${title}: ${post.title}</title>
     <link type="text/css" rel="stylesheet" href="../blog.css" />
   </head>
   <body>
     <div id="header">
-      <h1 id="main-title">$title</h1>
+      <h1 id="main-title">${title}</h1>
       <p class="tagline">A Primitive Baptist stay-at-home father, musician, and computer programmer who'll try anything once</p>
       <ul id="linkbar">
         <li><a href="/">Home</a></li>
@@ -25,13 +25,13 @@
 
     <div id="content">
       <div class="post-content">
-        $post.content
+        ${post.content}
       </div>
     </div>
     
   <div id="footer">
     <p class="low-visibility">
-      Copyright &copy; $date Jason R. Fruit.
+      Copyright &copy; ${date} Jason R. Fruit.
     </p>
   </div>
 
