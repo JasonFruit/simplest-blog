@@ -82,8 +82,8 @@ become root and issue:
 
 #### 3. Finally, install the ABCenatrix
 
-Download the [latest release](abcenatrix.tgz).  As a normal user,
-issue:
+Download a tarball of the [latest release](abcenatrix.tgz).  As a
+normal user, issue:
 
 `tar` `-xvf` _`path/to/abcenatrix.tgz`_
 
@@ -101,6 +101,20 @@ If all goes according to plan, the ABCenatrix will be installed.
 
 You can run it by issuing `abcenatrix` from the command line or by a
 menu entry that should be created for you.
+
+Source
+----------------------------------------------------------------------
+
+The best way to get the source is to download a tarball of the
+[latest release](abcenatrix.tgz).  It should always be fairly clean
+and reasonably up-to-date.
+
+The source code for the latest development version can be got from
+[https://github.com/JasonFruit/abcenatrix](https://github.com/JasonFruit/abcenatrix).
+I try not to commit code that's actually _broken_, but new features
+may be in rudimentary form and not quite fit for public consumption;
+please be cautious about using code newer than the release tarball
+above.
 
 ----------------------------------------------------------------------
 
