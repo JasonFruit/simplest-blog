@@ -8,6 +8,10 @@ The ABCenatrix
 The ABCenatrix is a viewer, manager, and editor for tunebooks in
 [ABC musical notation](http://abcnotation.com).
 
+----------------------------------------------------------------------
+
+(Jump straight to [Installation](#installation))
+
 Why not use an existing program?
 ----------------------------------------------------------------------
 
@@ -31,10 +35,7 @@ Requirements:
 
  - Python 2.7 or 3.x with PySide, pygame, and mido
  - abcm2ps and abc2midi
- - Linux (The ABCenatrix mostly works on Windows, too, but it's not
-   polished or stable yet, and installation involves a lot of
-   _download, unpack, install, repeat_.  It's untested on OS X, but
-   should work without modification.)
+ - Linux, or, if you're adventurous, Windows
    
 Screenshots:
 ----------------------------------------------------------------------
@@ -51,10 +52,15 @@ Here are a few pictures of the ABCenatrix in action:
 <a href="editing.png" target="_blank"><img src="editing-thumb.png" alt="Editing a tune" /></a>
 
  
-Installation:
+<a id="installation" name="installation" />Installation:
 ----------------------------------------------------------------------
 
-### Linux
+Jump to:
+
+ - [Linux](#linux)
+ - [Windows](#windows)
+ 
+### <a id="linux" name="linux" />Linux
 
 I've given the commands for Debian-based distributions, e.g. Ubuntu
 and derivatives, Linux Mint, etc.  Other distributions offer similar
@@ -102,6 +108,67 @@ If all goes according to plan, the ABCenatrix will be installed.
 You can run it by issuing `abcenatrix` from the command line or by a
 menu entry that should be created for you.
 
+### <a id="windows" name="windows" />Windows
+
+The ABCenatrix works on Windows, except for scaling the tune display.
+(Give me a moment on that.)  I wouldn't call the process installation,
+exactly, but here's how you acquire working prerequisites and get the
+program running.  (I'm working on a clean installation on Windows, but
+at least this way you can help shake out any bugs.)
+
+#### 1. Install python
+
+Install the latest release in the Python 2.7.x branch from
+[the Python website](https://www.python.org/downloads/windows/); it's
+2.7.14 at the time of writing.  When you get to what features will be
+installed, tell it to add Python to your PATH.
+
+#### 2. Install pip
+
+Download the
+[get-pip.py script](https://bootstrap.pypa.io/get-pip.py).  Open a
+`cmd` window, `cd` to where you have it saved, and run it:
+
+    python get-pip.py
+	
+#### 3. Install other dependencies
+
+Once you have pip, use it to install the Python dependencies for the
+ABCenatrix:
+
+    pip install pyside pygame mido
+	
+#### 4. Get git
+
+Download git (a source control tool) from
+[here](https://git-scm.com/download/win).  Run the installer.
+
+#### 5. Get the latest version of The ABCenatrix
+
+Open a `cmd` window and issue:
+
+    git clone https://github.com/JasonFruit/abcenatrix
+	
+Then, `cd` into the resulting `abcenatrix` directory, and issue:
+
+    mkdir tools
+	
+Keep this `cmd` window open.
+	
+#### 6. Get abcm2ps and abcmidi
+
+Download the .zip file of abctools for Windows from
+[here](http://abcplus.sourceforge.net/#abctools); at the time of
+writing, the version is abctools-win-20171121.zip.  Extract the zip
+file to the `tools` directory you just created.
+
+#### 7. Running
+
+In the `cmd` window from step 5, type `python abcenatrix`.  It should
+start up and run normally.  Please report bugs at
+[the ABCenatrix's Github page](https://github.com/JasonFruit/abcenatrix)
+so I can do better at supporting it on Windows.
+
 Source
 ----------------------------------------------------------------------
 
@@ -120,6 +187,6 @@ above.
 
 ### Footnotes
 
-<a name="fn1" id="fn1"><sup>1</sup>  </a> Despite what it says on their website,
-don't try to install PySide using pip; I've never gotten it to work.
-Not even once.
+<a name="fn1" id="fn1"><sup>1</sup> </a> Despite what it says on their
+website, don't try to install PySide on Linux using pip; I've never
+gotten it to work.  Not even once.
