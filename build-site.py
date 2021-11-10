@@ -1,5 +1,6 @@
 from __future__ import unicode_literals, print_function
 
+import json
 import os
 from codecs import open
 from datetime import datetime
@@ -13,17 +14,22 @@ post_tmpl = Template(open("post.tmpl", "r", "utf-8").read())
 main_tmpl = Template(open("main.tmpl", "r", "utf-8").read())
 post_index_tmpl = Template(open("post_index.tmpl", "r", "utf-8").read())
 
-title = "On Taking an Interest"
+with open("metadata.json", "r", "utf-8") as f:
+    metadata = json.load(f)
+    title = metadata["title"]
+    name = metadata["name"]
+    tagline = metadata["tagline"]
 
-def title_to_filename(title):
-    return "".join([c for c in title.lower().replace(" ", "_")
-                    if c in "abcdefghijklmnopqrstuvwxyz_"])
+# def title_to_filename(title):
+#     return "".join([c for c in title.lower().replace(" ", "_")
+#                     if c in "abcdefghijklmnopqrstuvwxyz_"])
 
 class Post(object):
-    def __init__(self, title, content, attributes=list()):
+    def __init__(self, fn, title, date, content, attributes=list()):
         self.title = title
+        self.date = date
         self.content = content
-        self.url = "%s.html" % title_to_filename(title)
+        self.url = fn.replace(".md", ".html")
         self.attributes = attributes
     def __repr__(self):
         if self.attributes["publish"] == "no":
@@ -67,7 +73,9 @@ for fn in sources:
 
     content = "".join(content)
 
-    post = Post(attributes["title"],
+    post = Post(fn.split("/")[-1],
+                attributes["title"],
+                attributes["date"],
                 markdown(content, output_format="xhtml"),
                 attributes = attributes)
 
@@ -97,6 +105,8 @@ posts.sort(key=post_ordering)
 for post in posts:
     if post.attributes["publish"] != "no":
         post_html = post_tmpl.render(title=title,
+                                     name=name,
+                                     tagline=tagline,
                                      post=post,
                                      date=post.attributes["date"])
         open("posts/%s" % post.url,
@@ -104,9 +114,11 @@ for post in posts:
              "utf-8").write(post_html)
 
 index_html = main_tmpl.render(title=title,
+                              name=name,
+                              tagline=tagline,
                               posts=[
                                   post for post in posts
-                                  if post.title.lower() not in ["about", "links"]
+                                  if post.title.lower() not in ["about", "about me", "links"]
                                   and post.attributes["publish"] != "no"][:3],
                               date="2015-present")
 
@@ -116,6 +128,8 @@ posts.sort(key=lambda p: p.title)
 
 post_index_html = post_index_tmpl.render(
     title=title,
+    name=name,
+    tagline=tagline,
     posts=[post for post in posts
            if post.attributes["publish"] != "no"],
     date=datetime.now().strftime("%B %d, %Y"))

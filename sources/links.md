@@ -1,12 +1,9 @@
 title: Links
-date: January 26, 2015
+date: Wed, November 10, 2021
 publish: yes
 <!-- Post Markdown begins here -->
-Links to Sites of Interest
+Links
 ======================================================================
 
- - [Primitive Baptist Library](http://pblib.org): Full of fascinating information on Primitive Baptists and their history
- - [Old-Line Primitive Baptist Hymn and Tune Book](http://olpbhtb.com): A Primitive Baptist hymnal I compiled
- - [Hymnary.org](http://hymnary.org): an index of hymns and hymnals
- - [My Github account](http://github.com/JasonFruit), full of half-finished projects of dubious worth, including the scripts to generate this site
- - [The Trumpet](http://singthetrumpet.com/): an online publication of new Sacred Harp-style music, including one of my own tunes 
+ - [My Flying Flea airplane project](http://pou-du-ciel.net)
+ - [The Old-Line Primitive Baptist Hymn and Tune Book](http://olpbhtb.com)

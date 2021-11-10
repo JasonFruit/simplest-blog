@@ -1,29 +1,13 @@
-title: About
-date: January 26, 2015
+title: About Me
+date: November 10, 2021
 publish: yes
 <!-- Post Markdown begins here -->
 About Me
 ======================================================================
 
-My name is Jason Fruit.  I have been and done a lot of things, roughly
-in chronological order:
-
- - Classical violist and composer
- - Airplane fanatic
- - Folk musician
- - Computer programmer
- - Student of Latin
- - Stay-at-home father of three
- - Primitive Baptist
- - Hymnal compiler
- - Instrument maker
-
-I'm sure the list has not ceased to grow.  As the header says, I'll
-try anything once, as long as it's not too expensive, too dangerous,
-or outright immoral.
-
-Anything I do or am, I may write about.  You have been warned.
-
-If you want to write me — especially welcome if you can correct me on
-any errors I have made — you can do so at
-[JasonFruit@gmail.com](mailto:JasonFruit@gmail.com).
+I am a stay-at-home father and computer programmer who trained as a
+classical violist and composer.  Being a Christian who is in favor of
+liberty and in support of inexcusable ideas like the constitutional
+originalism, nullification, and secession, I'm probably a white
+supremacist domestic extremist or whatever they're calling people like
+me this week.

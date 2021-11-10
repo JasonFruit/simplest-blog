@@ -8,13 +8,13 @@
                           http://www.w3.org/MarkUp/SCHEMA/xhtml11.xsd"
       >
   <head>
-    <title>${title}</title>
+    <title>Jason R. Fruit: All Posts</title>
     <link type="text/css" rel="stylesheet" href="../blog.css" />
   </head>
   <body>
     <div id="header">
-      <h1 id="main-title">${title}</h1>
-      <p class="tagline">${tagline}</p>
+      <h1 id="main-title">Jason R. Fruit</h1>
+      <p class="tagline">A stay-at-home father, programmer, and patriot</p>
       <ul id="linkbar">
         <li><a href="/">Home</a></li>
         <li><a href="/links.html">Links</a></li>
@@ -23,18 +23,22 @@
       </ul>
     </div>
 
-    % for post in posts:
-    <div id="content">
-      <div class="post-content">
-        ${post.content}
-	<p class="post-meta">last updated ${post.date} by ${name}</p>
-      </div>
+    <div class="post-content">
+      <table>
+        <tr>
+          <th>November 10, 2021</th>
+          <td><a href="about.html">About Me</a></td>
+        </tr>
+        <tr>
+          <th>Wed, November 10, 2021</th>
+          <td><a href="links.html">Links</a></td>
+        </tr>
+      </table>
     </div>
-    % endfor
     
   <div id="footer">
     <p class="low-visibility">
-      Copyright &copy; ${date} ${name}.
+      Copyright &copy; November 10, 2021 Jason R. Fruit.
     </p>
   </div>
 
