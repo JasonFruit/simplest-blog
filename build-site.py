@@ -10,9 +10,15 @@ from markdown import markdown
 from dateutil.parser import parse
 from glob import glob
 
+from md2gemini import md2gemini
+
 post_tmpl = Template(open("post.tmpl", "r", "utf-8").read())
 main_tmpl = Template(open("main.tmpl", "r", "utf-8").read())
 post_index_tmpl = Template(open("post_index.tmpl", "r", "utf-8").read())
+
+gmi_post_tmpl = Template(open("post.gmi.tmpl", "r", "utf-8").read())
+gmi_main_tmpl = Template(open("main.gmi.tmpl", "r", "utf-8").read())
+gmi_post_index_tmpl = Template(open("post_index.gmi.tmpl", "r", "utf-8").read())
 
 with open("metadata.json", "r", "utf-8") as f:
     metadata = json.load(f)
@@ -20,15 +26,12 @@ with open("metadata.json", "r", "utf-8") as f:
     name = metadata["name"]
     tagline = metadata["tagline"]
 
-# def title_to_filename(title):
-#     return "".join([c for c in title.lower().replace(" ", "_")
-#                     if c in "abcdefghijklmnopqrstuvwxyz_"])
-
 class Post(object):
-    def __init__(self, fn, title, date, content, attributes=list()):
+    def __init__(self, fn, title, date, content, gemini, attributes=list()):
         self.title = title
         self.date = date
         self.content = content
+        self.gemini = gemini
         self.url = fn.replace(".md", ".html")
         self.attributes = attributes
     def __repr__(self):
@@ -46,9 +49,14 @@ sources = glob("sources/*.md")
 sources = [source for source in sources
            if source != "sources/draft.md"]
 
+# create output directories if needed
 if not os.path.exists("posts"):
     os.mkdir("posts")
-    
+
+if not os.path.exists("gemini"):
+    os.mkdir("gemini")
+
+
 for fn in sources:
     
     lines = open(fn, "r", "utf-8").readlines()
@@ -77,6 +85,7 @@ for fn in sources:
                 attributes["title"],
                 attributes["date"],
                 markdown(content, output_format="xhtml"),
+                md2gemini(content, links="paragraph"),
                 attributes = attributes)
 
     posts.append(post)
@@ -109,9 +118,20 @@ for post in posts:
                                      tagline=tagline,
                                      post=post,
                                      date=post.attributes["date"])
+
+        post_gmi = gmi_post_tmpl.render(title=title,
+                                        name=name,
+                                        tagline=tagline,
+                                        post=post,
+                                        date=post.attributes["date"])
+
         open("posts/%s" % post.url,
              "w",
              "utf-8").write(post_html)
+        
+        open("gemini/%s" % post.url.replace(".html", ".gmi"),
+             "w",
+             "utf-8").write(post_gmi)
 
 index_html = main_tmpl.render(title=title,
                               name=name,
@@ -122,7 +142,17 @@ index_html = main_tmpl.render(title=title,
                                   and post.attributes["publish"] != "no"][:3],
                               date="2015-present")
 
+index_gmi = gmi_main_tmpl.render(title=title,
+                                name=name,
+                                tagline=tagline,
+                                posts=[
+                                    post for post in posts
+                                    if post.title.lower() not in ["about", "about me", "links"]
+                                    and post.attributes["publish"] != "no"][:3],
+                                date="2015-present")
+
 open("posts/index.html", "w", "utf-8").write(index_html)
+open("gemini/index.gmi", "w", "utf-8").write(index_gmi)
 
 posts.sort(key=lambda p: p.title)
 
@@ -133,9 +163,20 @@ post_index_html = post_index_tmpl.render(
     posts=[post for post in posts
            if post.attributes["publish"] != "no"],
     date=datetime.now().strftime("%B %d, %Y"))
+
+post_index_gmi = gmi_post_index_tmpl.render(
+    title=title,
+    name=name,
+    tagline=tagline,
+    posts=[post for post in posts
+           if post.attributes["publish"] != "no"],
+    date=datetime.now().strftime("%B %d, %Y"))
+
 open("posts/post_index.html", "w", "utf-8").write(post_index_html)
+open("gemini/post_index.gmi", "w", "utf-8").write(post_index_html)
 
 os.system("cp *.css posts/")
 os.system("cp robots.txt posts/")
 os.system("cp favicon.ico posts/")
 os.system("cp files/* posts/")
+os.system("cp files/* gemini/")

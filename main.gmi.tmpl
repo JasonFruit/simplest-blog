@@ -1,0 +1,14 @@
+# ${title}
+    ${tagline}
+
+=> / Home
+=> /links.gmi Links
+=> /post_index.gmi Post Index
+=> /about.gmi About
+
+    % for post in posts:
+## ${post.gemini}
+    last updated ${post.date} by ${name}
+    % endfor
+    
+Copyright © ${date} ${name}.

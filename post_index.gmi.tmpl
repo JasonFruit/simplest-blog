@@ -1,0 +1,14 @@
+# ${title}
+    ${tagline}
+    
+=> / Home
+=> links.gmi Links
+=> post_index.gmi Post Index
+=> about.gmi About
+
+## All Posts:
+% for post in posts:
+=> ${post.url.replace(".html", ".gmi")} ${post.attributes["date"]}: ${post.title}
+% endfor
+
+Copyright © ${date} ${name}.
