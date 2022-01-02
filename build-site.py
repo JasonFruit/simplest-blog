@@ -173,7 +173,7 @@ post_index_gmi = gmi_post_index_tmpl.render(
     date=datetime.now().strftime("%B %d, %Y"))
 
 open("posts/post_index.html", "w", "utf-8").write(post_index_html)
-open("gemini/post_index.gmi", "w", "utf-8").write(post_index_html)
+open("gemini/post_index.gmi", "w", "utf-8").write(post_index_gmi)
 
 os.system("cp *.css posts/")
 os.system("cp robots.txt posts/")
