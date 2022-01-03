@@ -7,9 +7,10 @@
 => https://jasonfruit.com Web version
 => /about.gmi About
 
-## Posts:
-    % for post in posts:
+# Posts:
+
+% for post in posts:
 => ${post.url.replace(".html", ".gmi")} ${post.title}
-    % endfor
+% endfor
     
 Copyright © ${date} ${name}.
