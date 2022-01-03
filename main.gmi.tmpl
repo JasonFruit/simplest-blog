@@ -4,13 +4,11 @@
 => / Home
 => /links.gmi Links
 => /post_index.gmi Post Index
+=> https://jasonfruit.com Web version
 => /about.gmi About
 
     % for post in posts:
-${post.gemini}
-
-last updated ${post.date} by ${name}
-
+=> ${post.url.replace(".html", ".gmi")} ${post.title}
     % endfor
     
 Copyright © ${date} ${name}.
